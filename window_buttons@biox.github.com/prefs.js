@@ -17,6 +17,9 @@ const Me = ExtensionUtils.getCurrentExtension();
 const Convenience = Me.imports.convenience;
 let extensionPath = Me.path;
 
+const Gettext = imports.gettext.domain("window_buttons");
+const _ = Gettext.gettext;
+
 // Settings
 const WA_PINCH = 'pinch';
 const WA_ORDER = 'order';
@@ -82,6 +85,7 @@ function cycleBox(boxEnum, forward) {
 /* **** prefs.js *** */
 
 function init() {
+    Convenience.initTranslations("window_buttons");
 }
 
 const WindowButtonsPrefsWidget = new GObject.Class({
@@ -123,12 +127,12 @@ const WindowButtonsPrefsWidget = new GObject.Class({
             }
         }));
         item.set_active_id(this._settings.get_string(WA_THEME) || 'default');
-        this.addRow("Which theme to use:", item);
+        this.addRow(_("Which theme to use:"), item);
         this._themeCombo = item;
 
         // doMetacity
-        this._doMetacity = this.addBoolean("Match Metacity theme if possible\n" +
-            " (/apps/metacity/general/theme, OVERRIDES above theme)",
+        this._doMetacity = this.addBoolean(_("Match Metacity theme if possible")+"\n (" +
+            _("/apps/metacity/general/theme, OVERRIDES above theme")+")",
             WA_DO_METACITY);
         this._doMetacity.connect('notify::active', Lang.bind(this, function () {
             this._themeCombo.set_sensitive(!this._doMetacity.active);
@@ -154,19 +158,19 @@ const WindowButtonsPrefsWidget = new GObject.Class({
             }
             this._order.set_sensitive(value === PinchType.CUSTOM);
         }));
-        this.addRow("Which button order to use:", item);
+        this.addRow(_("Which button order to use")+":", item);
 
         // order
-        this._order = this.addEntry("Button order:\n(allowed: {'minimize', " +
+        this._order = this.addEntry(_("Button order")+":\n("+_("allowed")+": {'minimize', " +
                 "'maximize', 'close', ':'})", WA_ORDER);
         this._order.set_sensitive(
                 this._settings.get_enum(WA_PINCH) === PinchType.CUSTOM
         );
         /* insert controls for moving buttons */
         this._positionLeft = this._makeLeftRightButtons(
-                "Position the left set of buttons", WA_LEFTBOX, WA_LEFTPOS);
+                _("Position the left set of buttons"), WA_LEFTBOX, WA_LEFTPOS);
         this._positionRight = this._makeLeftRightButtons(
-                "Position the right set of buttons", WA_RIGHTBOX, WA_RIGHTPOS);
+                _("Position the right set of buttons"), WA_RIGHTBOX, WA_RIGHTPOS);
         // disable if no left or right set of buttons to move.
         let lr = this._order.text.split(':');
         if (lr.length !== 1) {
@@ -182,37 +186,23 @@ const WindowButtonsPrefsWidget = new GObject.Class({
         }));
 
         // hide in overview?
-        this.addBoolean("Hide buttons in the overview?", WA_HIDEINOVERVIEW);
+        this.addBoolean(_("Hide buttons in the overview?"), WA_HIDEINOVERVIEW);
 
         // when to display the buttons (show-buttons)
         item = new Gtk.ComboBoxText();
         let explanations = {
-                ALWAYS: "buttons will be shown all the time.",
-                WINDOWS: "buttons will be shown if and only if there are " +
-                         "windows on the workspace.",
-                WINDOWS_VISIBLE: "buttons will be shown if and only if there " +
-                                 "are *visible* (i.e. non-minimized) windows " +
-                                 "on the workspace.",
-                CURRENT_WINDOW_MAXIMIZED: "buttons will be shown if and only " +
-                                          "if the current window is maximized.",
-                ANY_WINDOW_MAXIMIZED: "buttons will be shown if and only if " +
-                                      "there are *any* *maximized* windows on" +
-                                      " the workspace. In this case, clicking" +
-                                      " on a window button will control the " +
-                                      "**uppermost maximized window** which " +
-                                      "is **not necessarily the current " +
-                                      "window!**.",
-                ANY_WINDOW_FOCUSED: "buttons will be shown if and only if " +
-                                    "a window is focused. For example if you " +
-                                    "have Nautilus managing the desktop and " +
-                                    "click on it, you will have no focused " +
-                                    "windows so the buttons will hide."
+                ALWAYS: _("buttons will be shown all the time."),
+                WINDOWS: _("buttons will be shown if and only if there are windows on the workspace."),
+                WINDOWS_VISIBLE: _("buttons will be shown if and only if there are *visible* (i.e. non-minimized) windows on the workspace."),
+                CURRENT_WINDOW_MAXIMIZED: _("buttons will be shown if and only if the current window is maximized."),
+                ANY_WINDOW_MAXIMIZED: _("buttons will be shown if and only if there are *any* *maximized* windows on the workspace. In this case, clicking on a window button will control the **uppermost maximized window** which is **not necessarily the current window!**."),
+                ANY_WINDOW_FOCUSED: _("buttons will be shown if and only if a window is focused. For example if you have Nautilus managing the desktop and click on it, you will have no focused windows so the buttons will hide.")
                     
             };
-        this.addRow("When should the buttons appear?", item);
+        this.addRow(_("When should the buttons appear?"), item);
         let grid = new Gtk.Grid({column_spacing: 10}),
             expander = new Gtk.Expander({
-                label: "Explanation of show-button modes"
+                label: _("Explanation of show-button modes")
             });
         grid._rownum = 0;
         for (let type in ShowButtonsWhen) {

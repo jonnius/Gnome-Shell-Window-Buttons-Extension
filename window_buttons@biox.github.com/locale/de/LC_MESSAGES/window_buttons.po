@@ -1,0 +1,104 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Windows Buttons\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-09-09 14:19+0200\n"
+"PO-Revision-Date: 2013-09-09 16:23+0100\n"
+"Last-Translator: Jonatan Zeidler <jonatan_zeidler@gmx.de>\n"
+"Language-Team: GERMAN <jonatan_zeidler@gmx.de>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: window_buttons@biox.github.com/prefs.js:130
+msgid "Which theme to use:"
+msgstr "Thema"
+
+#: window_buttons@biox.github.com/prefs.js:134
+msgid "Match Metacity theme if possible"
+msgstr "Metacity-Thema nutzen, wenn möglich"
+
+#: window_buttons@biox.github.com/prefs.js:135
+msgid "/apps/metacity/general/theme, OVERRIDES above theme"
+msgstr "/apps/metacity/general/theme, ÜBERSCHREIBT diese"
+
+#: window_buttons@biox.github.com/prefs.js:161
+msgid "Which button order to use"
+msgstr "Reihenfolge der Knöpfe festlegen"
+
+#: window_buttons@biox.github.com/prefs.js:164
+msgid "Button order"
+msgstr "Reihenfolge der Knöpfe"
+
+#: window_buttons@biox.github.com/prefs.js:164
+msgid "allowed"
+msgstr "erlaubt"
+
+#: window_buttons@biox.github.com/prefs.js:171
+msgid "Position the left set of buttons"
+msgstr "Position der Knöpfe links"
+
+#: window_buttons@biox.github.com/prefs.js:173
+msgid "Position the right set of buttons"
+msgstr "Position der Knöpfe rechts"
+
+#: window_buttons@biox.github.com/prefs.js:189
+msgid "Hide buttons in the overview?"
+msgstr "In der Übersicht Knöpfe verstecken"
+
+#: window_buttons@biox.github.com/prefs.js:194
+msgid "buttons will be shown all the time."
+msgstr "Knöpfe werden jederzeit angezeigt."
+
+#: window_buttons@biox.github.com/prefs.js:195
+msgid ""
+"buttons will be shown if and only if there are windows on the workspace."
+msgstr "Knöpfe werden angezeigt, wenn Fenster auf der Arbeitsfläche sind."
+
+#: window_buttons@biox.github.com/prefs.js:196
+msgid ""
+"buttons will be shown if and only if there are *visible* (i.e. non-"
+"minimized) windows on the workspace."
+msgstr ""
+"Knöpfe werden angezeigt, wenn sichtbare Fenster (also auch nicht minimiert) "
+"auf der Arbeitsfläche sind. "
+
+#: window_buttons@biox.github.com/prefs.js:197
+msgid "buttons will be shown if and only if the current window is maximized."
+msgstr "Knöpfe werden angezeigt, wenn das aktuelle Fenster maximiert ist."
+
+#: window_buttons@biox.github.com/prefs.js:198
+msgid ""
+"buttons will be shown if and only if there are *any* *maximized* windows on "
+"the workspace. In this case, clicking on a window button will control the "
+"**uppermost maximized window** which is **not necessarily the current window!"
+"**."
+msgstr ""
+"Knöpfe werden angezeigt, wenn irgendein maximiertes Fenster auf der "
+"Arbeitsfläche ist. In diesem Fall wird der Knopfdruck sich auf das oberste "
+"maximierte Fenster auswirken, welches nicht unbedingt das aktuelle Fenster "
+"ist."
+
+#: window_buttons@biox.github.com/prefs.js:199
+msgid ""
+"buttons will be shown if and only if a window is focused. For example if you "
+"have Nautilus managing the desktop and click on it, you will have no focused "
+"windows so the buttons will hide."
+msgstr ""
+"Knöpfe werden angezeigt, wenn ein Fenster fokusiert ist. Wenn zum Beispiel "
+"Nautilus den Schreibtisch verwaltet, dann ist das kein fokusiertes Fenster."
+
+#: window_buttons@biox.github.com/prefs.js:202
+msgid "When should the buttons appear?"
+msgstr "Wann die Knöpfe erscheinen"
+
+#: window_buttons@biox.github.com/prefs.js:205
+msgid "Explanation of show-button modes"
+msgstr "Erklärungen zu den Modi für das Erscheinen der Knöpfe"
